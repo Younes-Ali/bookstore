@@ -1,12 +1,20 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import Values from '../components/home/Values'
+import BestSeller from '../components/home/BestSeller'
+import Recomended from '../components/home/Recomended'
+import FlashSale from '../components/home/FlashSale'
+import Footer from '../components/Footer'
 
 export default function Home() {
   return (
-    <div className='w-full h-200 bg-white flex justify-center items-center'>
-        <Link to={'/auth/signin'}>
-            <button className='bg-black p-5 text-xl font-bold rounded shadow'> sign in </button>
-        </Link>
+    <div className='w-full h-dvh bg-white'>
+      <Values/>
+      <BestSeller/>
+      <Recomended/>
+      <div className='w-full h-0.5 bg-[#f2f2f2] px-5'>
+        <div className='w-full bg-black/20 h-full'></div>
+      </div>
+      <FlashSale/>
+      <Footer/>
     </div>
   )
 }

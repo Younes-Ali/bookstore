@@ -1,5 +1,4 @@
-
-import Footter from '../components/Footter'
+import Footer from '../components/Footer'
 import Header from '../components/Header'
 import { Outlet } from 'react-router-dom'
 
@@ -8,7 +7,7 @@ export default function AuthLayout() {
     <div className='w-full h-dvh bg-[#F5F5F5]' >
         <Header/>
         <Outlet/>
-        <Footter/>
+        <Footer/>
     </div>
   )
 }
