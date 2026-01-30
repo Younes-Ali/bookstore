@@ -23,6 +23,8 @@ export default function App() {
           </Route>
           <Route path='/' element={<MainLayout/>}>
             <Route index element={<Home/>}/>
+            <Route path='books' element={<p>books page</p>}/>
+            <Route path='about' element={<p>about page</p>}/>
           </Route>
         </Routes>
       </BrowserRouter>

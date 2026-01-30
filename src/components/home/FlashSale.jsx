@@ -154,7 +154,7 @@ export default function FlashSale() {
                     className="bg-[#3B2F4A] rounded-2xl p-6 flex flex-col sm:flex-row gap-6 shadow-xl"
                   >
                     {/* Book Image */}
-                    <div className="sm:w-1/3 flex-shrink-0">
+                    <div className="sm:w-1/3 shrink-0">
                       <img
                         src={book.image}
                         alt={book.title}
@@ -209,7 +209,7 @@ export default function FlashSale() {
                         <div className="mb-2">
                           <div className="w-full bg-gray-600 rounded-full h-2">
                             <div
-                              className="bg-gradient-to-r from-yellow-400 to-orange-500 h-2 rounded-full"
+                              className="bg-linear-to-r from-yellow-400 to-orange-500 h-2 rounded-full"
                               style={{ width: '70%' }}
                             />
                           </div>
