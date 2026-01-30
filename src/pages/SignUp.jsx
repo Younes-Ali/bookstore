@@ -51,7 +51,7 @@ export default function SignUp() {
             onSubmit={handleSubmit} 
             validationSchema={validationSchema}
         >
-            <Form className="flex flex-col gap-6 w-100">
+            <Form className="flex flex-col gap-6 w-screen p-3 md:w-100 md:p-0">
                 <div className='flex justify-between gap-5'>
                     <div>
                         <label className='font-semibold' htmlFor="firstName">First Name</label>    

@@ -37,7 +37,7 @@ export default function SignIn() {
         <div className={`w-full h-dvh flex flex-col gap-10 items-center justify-center bg-[#F5F5F5] text-black`}>
             <h2 className='font-semibold font-sans text-[#D9176C]'>Welcome Back!</h2>
         <Formik initialValues={{ email: '', password: '', isChecked: false }} onSubmit={handleSubmit} validationSchema={validationSchema}>
-            <Form className=" flex flex-col gap-6 w-100">
+            <Form className=" flex flex-col gap-6 max-w-100">
                 <div>
                     <label className='font-semibold' htmlFor="email">Email</label>    
                     <Field className="w-full input bg-white rounded-lg shadow" name="email" type="text" placeholder="Enter you email" />
@@ -77,12 +77,4 @@ export default function SignIn() {
     );
 }
 
-// Login => (email - passowrd)
-// Token From Backend
 
-// New Requests (Posts of my Account)
-// Request + Token
-
-// jwt => json web token
-// localStorage
-// sessionStorage
