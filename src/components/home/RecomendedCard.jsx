@@ -3,7 +3,7 @@ import { IoCartOutline } from "react-icons/io5";
 
 export default function RecomendedCard({img, title, author, body, price, reviews }) {
   return (
-    <div className='w-full px-4 md:px-6 lg:px-8'>
+    <div className='w-screen md:w-full px-2 md:px-6 lg:px-8'>
         <div className="card card-side bg-white p-6 text-black shadow-lg rounded-lg overflow-hidden flex-col md:flex-row">
             <figure className=" md:w-1/3">
                 <img

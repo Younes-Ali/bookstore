@@ -6,10 +6,10 @@ import { GiWorld } from "react-icons/gi";
 
 export default function Footer() {
   return (
-    <div className='w-full h-80 py-30 px-15 bg-[#3B2F4A] flex justify-center items-center'>
+    <div className='w-full py-30 px-15 bg-[#3B2F4A] flex justify-center items-center'>
       <div className="w-full flex flex-col gap-8">
-        <div className="w-full flex justify-between items-center">
-          <div className="flex items-center gap-10">
+        <div className="w-full flex flex-col lg:flex-row gap-5 md:gap-0 justify-between items-center">
+          <div className="flex  items-center gap-10">
             <div className="flex gap-2 items-center">
               <img src={logo} alt="logo" />
               <h1 className="text-xl font-bold">Bookshop</h1>
@@ -23,7 +23,7 @@ export default function Footer() {
             <FaTwitter size={32}/>
           </div>
         </div>
-        <div className="w-full border-t border-white/30 flex items-center justify-between py-5">
+        <div className="w-full border-t border-white/30 flex flex-col lg:flex-row gap-5 md:gap-0 items-center justify-between py-5">
           <h2>{'<Developed By> EraaSoft <All Copy Rights Reserved @2024'}</h2>
           <div className="flex items-center gap-5">
             <GiWorld size={25}/>
