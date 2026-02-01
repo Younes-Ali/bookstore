@@ -26,7 +26,7 @@ export default function Code() {
             .post(url, dataToSend)
             .then((res) => {
                 toast.success('Password reset successful');
-                navigate('/reset-password');
+                navigate('/new-password');
             })
             .catch((err) => {
                 toast.error(err.response?.data?.message || 'Something went wrong');
