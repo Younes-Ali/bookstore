@@ -9,18 +9,18 @@ export default function Footer() {
     <div className='w-full py-30 px-15 bg-[#3B2F4A] flex justify-center items-center'>
       <div className="w-full flex flex-col gap-8">
         <div className="w-full flex flex-col lg:flex-row gap-5 md:gap-0 justify-between items-center">
-          <div className="flex  items-center gap-10">
+          <div className="flex flex-wrap items-center gap-10">
             <div className="flex gap-2 items-center">
-              <img src={logo} alt="logo" />
-              <h1 className="text-xl font-bold">Bookshop</h1>
+              <img src={logo} alt="logo" className="w-5 md:w-7" />
+              <h1 className="text-lg md:text-xl font-bold">Bookshop</h1>
             </div>
             <NavBar/>
           </div>
-          <div className="flex items-center gap-5">
-            <FaSquareFacebook size={32}/>
-            <FaInstagram size={32}/>
-            <FaYoutube size={32}/>
-            <FaTwitter size={32}/>
+          <div className="flex items-center text-xl md:text-2xl gap-5">
+            <FaSquareFacebook />
+            <FaInstagram />
+            <FaYoutube />
+            <FaTwitter />
           </div>
         </div>
         <div className="w-full border-t border-white/30 flex flex-col lg:flex-row gap-5 md:gap-0 items-center justify-between py-5">

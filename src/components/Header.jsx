@@ -11,7 +11,11 @@ export default function Header() {
   return (
         <div
             className={`relative bg-no-repeat bg-center bg-cover w-full ${
-                loc.pathname === '/auth/signin' || loc.pathname === '/auth/signup'
+                loc.pathname === '/auth/signin' ||
+                loc.pathname === '/auth/signup' ||
+                loc.pathname === '/auth/forget-password' ||
+                loc.pathname === '/auth/rest-password' ||
+                loc.pathname === '/auth/new-password'
                 ? 'h-100'
                 : 'h-200'
             }`}
@@ -34,7 +38,7 @@ export default function Header() {
             className="w-full flex flex-col md:flex-row items-center justify-around gap-6 md:gap-2 bg-white/20 text-white top-0 z-50 p-3 backdrop-blur-md shadow-lg"
             
         >
-            <div className='flex gap-5 items-center'>
+            <div className='flex flex- gap-5 items-center'>
                 <div className='flex gap-2 items-center'>
                     <img 
                         className='transition-all duration-300' 

@@ -1,10 +1,10 @@
 import { FaRegHeart } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 
-export default function RecomendedCard({img, title, author, body, price, reviews }) {
+export default function RecomendedCard({img, title, author, price }) {
   return (
-    <div className='w-screen md:w-full px-2 md:px-6 lg:px-8'>
-        <div className="card card-side bg-white p-6 text-black shadow-lg rounded-lg overflow-hidden flex-col md:flex-row">
+    
+        <div className="card card-side bg-white p-6 text-black shadow-lg rounded-lg overflow-hidden flex-col lg:flex-row">
             <figure className=" md:w-1/3">
                 <img
                     src={img}
@@ -14,10 +14,10 @@ export default function RecomendedCard({img, title, author, body, price, reviews
             </figure>
             <div className="card-body p-6 w-full md:w-2/3">
                 <h2 className="card-title text-xl md:text-2xl lg:text-3xl font-bold text-[#222222] mb-2">
-                    Rich Dad And Poor Dad
+                    {title}
                 </h2>
                 <h3 className="text-base md:text-lg text-[#222222] mb-4">
-                    <span className="font-semibold text-[#222222]/50">Author:</span> Robert T. Kiyosaki
+                    <span className="font-semibold text-[#222222]/50">Author:</span> {author}
                 </h3>
                 <p className="w-full text-sm md:text-base text-[#222222]/70 leading-relaxed mb-6">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et ultricies est. Aliquam in justo varius, sagittis neque ut, malesuada leo. Aliquam in justo varius, Aliquam in justo varius,
@@ -36,7 +36,7 @@ export default function RecomendedCard({img, title, author, body, price, reviews
                             <span className="text-sm">(180 Review)</span>
                         </div>
                         <div>
-                            <p className="text-2xl md:text-3xl font-bold text-black">$30.00</p>
+                            <p className="text-2xl md:text-3xl font-bold text-black">{'$'+price}</p>
                         </div>
                     </div>
                     <div className="flex justify-between gap-3">
@@ -50,6 +50,5 @@ export default function RecomendedCard({img, title, author, body, price, reviews
                 </div>
             </div>
         </div>
-    </div>
   )
 }

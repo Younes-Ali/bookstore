@@ -28,7 +28,7 @@ export default function Values() {
     ]
 
   return (
-    <div className='w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 py-12 px-6 md:py-16 md:px-12 lg:py-20 lg:px-16 xl:px-20 gap-8 lg:gap-6'>
+    <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 py-12 px-6 md:py-16 md:px-12 lg:py-20 lg:px-16 xl:px-20 gap-8 lg:gap-6'>
         {
             Values.map((ele, ind) => {
                 return(

@@ -5,6 +5,9 @@ import SignUp from './pages/SignUp'
 import { Toaster } from "react-hot-toast";
 import Home from './pages/Home';
 import MainLayout from './layouts/MainLayout';
+import ForgetPass from './pages/ForgetPass';
+import Code from './pages/Code';
+import NewPass from './pages/NewPass';
 
 
 
@@ -20,6 +23,9 @@ export default function App() {
           <Route path='/auth' element={<AuthLayout />}>
             <Route path='signin' element={<SignIn/>} />
             <Route path='signup' element={<SignUp/>} />
+            <Route path='forget-password' element={<ForgetPass/>} />
+            <Route path='reset-password' element={<Code/>}/>
+            <Route path='new-password' element={<NewPass/>}/>
           </Route>
           <Route path='/' element={<MainLayout/>}>
             <Route index element={<Home/>}/>

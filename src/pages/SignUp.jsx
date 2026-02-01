@@ -6,6 +6,7 @@ import * as Yup from 'yup';
 
 import google from '../assets/logo/google.png'
 import facebook from '../assets/logo/facebook.png'
+import { useEffect } from 'react';
 
 export default function SignUp() {
     const validationSchema = Yup.object({
@@ -35,7 +36,6 @@ export default function SignUp() {
         axios
         .post(url, dataToSend)
         .then((res) => {
-            console.log(res.data)
             toast.success('Registration Success');
             navigate('/auth/signin');
         })
@@ -44,8 +44,15 @@ export default function SignUp() {
         });
     };
 
+    useEffect(() => {
+        let token = localStorage.getItem('token') || sessionStorage.getItem('token');
+        if (token) {
+            navigate('/');
+        }
+    }, []);
+
     return (
-        <div className={`w-full h-dvh flex flex-col gap-10 items-center justify-center bg-[#F5F5F5] text-black`}>
+        <div className={`w-full h-dvh flex flex-col gap-10 items-center mt-15 bg-[#F5F5F5] text-black`}>
         <Formik 
             initialValues={{ firstName: '', lastName: '', email: '', password: '', confirmPassword: '', isChecked: false }} 
             onSubmit={handleSubmit} 

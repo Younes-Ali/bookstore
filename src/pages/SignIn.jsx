@@ -6,6 +6,7 @@ import * as Yup from 'yup';
 
 import google from '../assets/logo/google.png'
 import facebook from '../assets/logo/facebook.png'
+import { useEffect } from 'react';
 
 export default function SignIn() {
     const validationSchema = Yup.object({
@@ -24,17 +25,26 @@ export default function SignIn() {
         axios
         .post(url, dataToSend)
         .then((res) => {
-            console.log(res.data)
+            let token = res.data.data.token;
+            values.isChecked ? localStorage.setItem('token', token) : sessionStorage.setItem('token', token);
             toast.success('Login Success');
+            navigate('/');
         })
         .catch((err) => {
-            toast.error(err.response.data.error.message);
+            console.log(err);
         });
     };
 
+    useEffect(() => {
+        let token = localStorage.getItem('token') || sessionStorage.getItem('token');
+        if (token) {
+        navigate('/');
+        }
+    }, []);
+
 
     return (
-        <div className={`w-full h-dvh flex flex-col gap-10 items-center justify-center bg-[#F5F5F5] text-black`}>
+        <div className={`w-full h-dvh flex flex-col gap-10 items-center mt-15 bg-[#F5F5F5] text-black`}>
             <h2 className='font-semibold font-sans text-[#D9176C]'>Welcome Back!</h2>
         <Formik initialValues={{ email: '', password: '', isChecked: false }} onSubmit={handleSubmit} validationSchema={validationSchema}>
             <Form className=" flex flex-col gap-6 w-screen p-3 md:w-100 md:p-0">
@@ -48,11 +58,15 @@ export default function SignIn() {
                     <Field className="w-full input bg-white rounded-lg shadow" name="password" type="text" placeholder="Enter you password" />
                     <ErrorMessage name="password" component={'p'} className="text-red-500" />
                 </div>
-
-                <label className="flex gap-3">
-                    <Field name="isChecked" className="" type="checkbox" />
-                    Remember Me
-                </label>
+                <div className='w-full flex justify-between'>
+                    <label className="flex gap-3">
+                        <Field name="isChecked" className="" type="checkbox" />
+                        Remember Me
+                    </label>
+                    <Link to={'/auth/forget-password'}>
+                        <p className='text-[#D9176C]'>Forget password?</p>
+                    </Link>
+                </div>
 
                 <button type="submit" className="btn bg-[#D9176C] w-full">
                     Login

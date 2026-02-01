@@ -1,11 +1,30 @@
-import { Link, useLocation } from 'react-router-dom'
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { MdOutlineShoppingCart } from "react-icons/md";
+import { CiHeart } from "react-icons/ci";
+import avatar from '../assets/people/p1.png'
 
 export default function HeaderInfo() {
-  const loc = useLocation();
+    let domain = 'https://bookstore.eraasoft.pro/api';
+    let endPoint = '/profile';
+    let url = domain + endPoint;
+
+    const [personData, setPersonData] = useState({});
+
+    useEffect(()=>{
+      let token = localStorage.getItem('token') || sessionStorage.getItem('token');
+      let basmga = { headers: { Authorization: `Bearer ${token}` } };
+      axios.get(url ,basmga).then((res)=>{
+        setPersonData(res.data.data);
+      }).catch((err)=>{
+
+      })
+    },[])
   return (
     <>
       {
-        (loc.pathname == '/auth/signin'|| '/auth/signup') ? (
+        !(localStorage.getItem('token') || sessionStorage.getItem('token')) ? (
           <div className='flex gap-4'>
             <Link to={'/auth/signin'}>
               <button className='p-3 bg-[#D9176C] rounded-lg'>Log in</button>
@@ -15,7 +34,20 @@ export default function HeaderInfo() {
             </Link>
           </div>
         ) : (
-          <div></div>
+          <div className='flex gap-7 items-center'>
+            <CiHeart size={32} />
+            <MdOutlineShoppingCart size={32} />
+            <div className='flex items-center gap-3'>
+              <div className='relative'>
+                <img src={avatar} alt="person" className='w-12' />
+                <div className='w-3 h-3 bg-green-500 absolute top-0.5 right-0.5 z-10 rounded-full'></div>
+              </div>
+              <div className='relative'>
+                <p className='text-lg font-bold'>{personData.first_name +" "+personData.last_name}</p>
+                <p className='text-white/60'>{personData.email}</p>
+              </div>
+            </div>
+          </div>
         )
       }
       
