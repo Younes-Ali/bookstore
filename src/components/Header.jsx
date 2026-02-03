@@ -38,9 +38,9 @@ export default function Header() {
                 }
                 {
                     (loc.pathname === '/about') &&
-                    <div className='w-150 text-center absolute top-[50%] left-[50%] translate-[-50%] flex flex-col items-center gap-4'>
+                    <div className='max-w-150 text-center absolute top-[50%] left-[50%] translate-[-50%] flex flex-col items-center gap-4'>
                         <h1 className='text-4xl md:text-6xl font-bold text-white'>About Bookshop</h1>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam esse eveniet, fuga quisquam, quia, veritatis tenetur illo maxime hic possimus ipsa. Deserunt magni, eligendi omnis blanditiis optio dolore ut officiis!</p>
+                        <p className='w-screen p-2 md:w-full md:p-0'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam esse eveniet, fuga quisquam, quia, veritatis tenetur illo maxime hic possimus ipsa. Deserunt magni, eligendi omnis blanditiis optio dolore ut officiis!</p>
                     </div>
                 }
         <div 

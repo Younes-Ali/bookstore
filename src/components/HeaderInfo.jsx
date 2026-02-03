@@ -43,8 +43,8 @@ export default function HeaderInfo() {
                 <div className='w-3 h-3 bg-green-500 absolute top-0.5 right-0.5 z-10 rounded-full'></div>
               </Link>
               <div className='relative'>
-                <p className='text-lg font-bold'>{personData.first_name +" "+personData.last_name}</p>
-                <p className='text-white/60'>{personData.email}</p>
+                <p className='text-sm md:text-lg font-bold'>{personData.first_name +" "+personData.last_name}</p>
+                <p className='text-xs md:text-sm text-white/60'>{personData.email}</p>
               </div>
             </div>
           </div>

@@ -25,7 +25,7 @@ export default function  Missions() {
             Missions.map((ele, ind) => {
                 return(
                     <div
-                        className='w-80 bg-white flex flex-col gap-8 items-center text-center sm:items-start sm:text-left p-6 rounded-lg'
+                        className='max-w-80 bg-white flex flex-col gap-8 items-center text-center sm:items-start sm:text-left p-6 rounded-lg'
                         key={ind}
                     >
                         <h2 className='text-[#222222] text-lg font-bold leading-tight'>{ele.title}</h2>
