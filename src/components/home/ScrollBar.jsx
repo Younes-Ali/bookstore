@@ -1,3 +1,8 @@
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Virtual } from 'swiper/modules';
+import 'swiper/css';
+
+
 import img1 from '../../assets/images/book1.png'
 import img2 from '../../assets/images/book2.png'
 import img3 from '../../assets/images/book3.png'
@@ -15,34 +20,26 @@ export default function ScrollBar() {
         <div className="p-6 mt-20 overflow-hidden">
             <div className="w-full space-y-8">
                 <div className="w-full overflow-hidden rounded-lg border border-gray-700 py-4">
-                    <style>
-                        {`
-                        @keyframes scroll-infinite {
-                            0% {
-                                transform: translateX(0);
-                            }
-                            100% {
-                                transform: translateX(-50%);
-                            }
-                        }
-                        
-                        .animate-scroll {
-                            animation: scroll-infinite 30s linear infinite;
-                            width: max-content;
-                            will-change: transform;
-                        }
-                        
-                        .animate-scroll:hover {
-                            animation-play-state: paused;
-                        }
-                        `}
-                    </style>
-                    
-                    <div className="flex animate-scroll">
-                        {[...books, ...books].map((item, index) => (
-                            <div
+                    <Swiper
+                        modules={[Autoplay]}
+                        spaceBetween={32}
+                        slidesPerView="auto"
+                        loop={true}
+                        autoplay={{
+                            delay: 0,
+                            disableOnInteraction: false,
+                            pauseOnMouseEnter: true,
+                        }}
+                        speed={3000}
+                        freeMode={true}
+                        breakpoints={false}
+                        className="mySwiper"
+                    >
+                        {books.map((item, index) => (
+                            <SwiperSlide 
                                 key={index}
-                                className="shrink-0 mx-4 shadow-lg hover:scale-105 transition-transform duration-300"
+                                style={{ width: 'auto' }}
+                                className="shrink-0 shadow-lg hover:scale-105 transition-transform duration-300"
                             >
                                 <div className='w-full'>
                                     <img 
@@ -51,9 +48,9 @@ export default function ScrollBar() {
                                         className="w-60 mb-2 mx-auto rounded-2xl" 
                                     />
                                 </div>
-                            </div>
+                            </SwiperSlide>
                         ))}
-                    </div>
+                    </Swiper>
                 </div>  
             </div>
         </div>

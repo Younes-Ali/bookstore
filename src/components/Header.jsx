@@ -10,7 +10,7 @@ export default function Header() {
     const loc = useLocation();
   return (
         <div
-            className={`relative bg-no-repeat bg-center bg-cover w-full ${
+            className={`relative bg-no-repeat bg-center bg-cover w-full z-0 ${
                 loc.pathname === '/auth/signin' ||
                 loc.pathname === '/auth/signup' ||
                 loc.pathname === '/auth/forget-password' ||
@@ -20,7 +20,9 @@ export default function Header() {
                 : 'h-200'
             }`}
 
-            style={{ backgroundImage: `url(${main})` }}
+            style={{ 
+                backgroundImage: (loc.pathname ==='/about') ? `linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(${main})` : `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${main})`,
+                }}
             >
                 {
                     (loc.pathname === '/') &&
@@ -34,8 +36,15 @@ export default function Header() {
                         </div>
                     </div>
                 }
+                {
+                    (loc.pathname === '/about') &&
+                    <div className='w-150 text-center absolute top-[50%] left-[50%] translate-[-50%] flex flex-col items-center gap-4'>
+                        <h1 className='text-4xl md:text-6xl font-bold text-white'>About Bookshop</h1>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam esse eveniet, fuga quisquam, quia, veritatis tenetur illo maxime hic possimus ipsa. Deserunt magni, eligendi omnis blanditiis optio dolore ut officiis!</p>
+                    </div>
+                }
         <div 
-            className="w-full flex flex-col md:flex-row items-center justify-around gap-6 md:gap-2 bg-white/20 text-white top-0 z-50 p-3 backdrop-blur-md shadow-lg"
+            className="w-full flex flex-col md:flex-row items-center justify-around gap-6 md:gap-2 bg-white/15 text-white top-0 z-50 p-3 backdrop-blur-md shadow-lg"
             
         >
             <div className='flex flex- gap-5 items-center'>

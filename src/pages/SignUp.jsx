@@ -40,7 +40,7 @@ export default function SignUp() {
             navigate('/auth/signin');
         })
         .catch((err) => {
-            toast.error(err.response.data.error.message);
+            console.log(err);
         });
     };
 

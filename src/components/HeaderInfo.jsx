@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { CiHeart } from "react-icons/ci";
-import avatar from '../assets/people/p1.png'
+import avatar from '../assets/people/p1.svg'
 
 export default function HeaderInfo() {
     let domain = 'https://bookstore.eraasoft.pro/api';
@@ -20,7 +20,7 @@ export default function HeaderInfo() {
       }).catch((err)=>{
 
       })
-    },[])
+    },[]);
   return (
     <>
       {
@@ -38,10 +38,10 @@ export default function HeaderInfo() {
             <CiHeart size={32} />
             <MdOutlineShoppingCart size={32} />
             <div className='flex items-center gap-3'>
-              <div className='relative'>
+              <Link to={'/auth/profile'} className='relative'>
                 <img src={avatar} alt="person" className='w-12' />
                 <div className='w-3 h-3 bg-green-500 absolute top-0.5 right-0.5 z-10 rounded-full'></div>
-              </div>
+              </Link>
               <div className='relative'>
                 <p className='text-lg font-bold'>{personData.first_name +" "+personData.last_name}</p>
                 <p className='text-white/60'>{personData.email}</p>

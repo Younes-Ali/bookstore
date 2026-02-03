@@ -6,7 +6,7 @@ import Footer from '../components/Footer'
 
 export default function Home() {
   return (
-    <div className='w-full h-dvh bg-white'>
+    <div className='w-full bg-white'>
       <Values/>
       <BestSeller/>
       <Recomended/>
@@ -14,7 +14,6 @@ export default function Home() {
         <div className='w-full bg-black/20 h-full'></div>
       </div>
       <FlashSale/>
-      <Footer/>
     </div>
   )
 }

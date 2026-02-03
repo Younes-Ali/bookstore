@@ -12,7 +12,7 @@ export default function RecomendedCard({img, title, author, price }) {
                     className='w-full object-contain'
                 />
             </figure>
-            <div className="card-body p-6 w-full md:w-2/3">
+            <div className="card-body p-2 w-full md:w-2/3">
                 <h2 className="card-title text-xl md:text-2xl lg:text-3xl font-bold text-[#222222] mb-2">
                     {title}
                 </h2>

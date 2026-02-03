@@ -8,6 +8,8 @@ import MainLayout from './layouts/MainLayout';
 import ForgetPass from './pages/ForgetPass';
 import Code from './pages/Code';
 import NewPass from './pages/NewPass';
+import Profile from './pages/Profile';
+import About from './pages/About';
 
 
 
@@ -26,11 +28,12 @@ export default function App() {
             <Route path='forget-password' element={<ForgetPass/>} />
             <Route path='reset-password' element={<Code/>}/>
             <Route path='new-password' element={<NewPass/>}/>
+            <Route path='profile' element={<Profile/>}/>
           </Route>
           <Route path='/' element={<MainLayout/>}>
             <Route index element={<Home/>}/>
             <Route path='books' element={<p>books page</p>}/>
-            <Route path='about' element={<p>about page</p>}/>
+            <Route path='about' element={<About/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
