@@ -8,6 +8,7 @@ import { MdOutlineMailOutline } from "react-icons/md";
 import { FaLocationDot, FaPencil } from "react-icons/fa6";
 import { LuPhoneCall } from "react-icons/lu";
 import { BsChatSquareTextFill } from "react-icons/bs";
+import axios from "axios";
 
 export default function GetInTouch() {
     const contactInfo = [
@@ -26,10 +27,24 @@ export default function GetInTouch() {
         message: "",
     };
     const handleSubmit = (values, { resetForm }) => {
-        toast("Thank you for contacting us!", {
-        icon: "💕",
+        let domain = 'https://bookstore.eraasoft.pro/api';
+        let endPoint = '/contacts/store';
+        let url = domain + endPoint;
+        const dataToSend = {
+            name: values.name,
+            email: values.email,
+            subject: "Contact Form Submission",
+            message: values.message
+        };
+        axios.post(url, dataToSend).then((res)=>{
+            toast("Thank you for contacting us!", {
+            icon: "💕",
+            });
+            resetForm();
+        }).catch((err)=>{
+            toast.error("Failed to send message. Please try again later.");
         });
-        resetForm();
+        
     };
     return (
         <div

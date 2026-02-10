@@ -10,12 +10,13 @@ import Code from './pages/Code';
 import NewPass from './pages/NewPass';
 import Profile from './pages/Profile';
 import About from './pages/About';
+import Books from './pages/Books';
 
 
 
 export default function App() {
   return (
-    <div className='w-full h-dvh'>
+    <div className='w-full '>
       <Toaster
         position="top-right"
         reverseOrder={false}
@@ -32,9 +33,14 @@ export default function App() {
           </Route>
           <Route path='/' element={<MainLayout/>}>
             <Route index element={<Home/>}/>
-            <Route path='books' element={<p>books page</p>}/>
+            <Route path='books' element={<Books/>}/>
             <Route path='about' element={<About/>}/>
           </Route>
+          <Route path='*' element={
+            <div className='w-full h-screen flex items-center justify-center'>
+              <h1 className='text-4xl font-bold text-gray-200'>404 - Page Not Found</h1>
+            </div>
+          }/>
         </Routes>
       </BrowserRouter>
     </div>

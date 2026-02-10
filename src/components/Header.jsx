@@ -8,18 +8,18 @@ import { MdOutlineKeyboardVoice } from "react-icons/md";
 
 export default function Header() {
     const loc = useLocation();
+    let h = '' ;
+    if(loc.pathname === '/auth/signin' || loc.pathname === '/auth/signup' || loc.pathname === '/auth/forget-password' || loc.pathname === '/auth/rest-password' || loc.pathname === '/auth/new-password') {
+        h='h-100'
+    } else if(loc.pathname === '/books') { 
+        h='h-30'
+    }else{
+        h='h-200'
+    }
   return (
-        <div
-            className={`relative bg-no-repeat bg-center bg-cover w-full z-0 ${
-                loc.pathname === '/auth/signin' ||
-                loc.pathname === '/auth/signup' ||
-                loc.pathname === '/auth/forget-password' ||
-                loc.pathname === '/auth/rest-password' ||
-                loc.pathname === '/auth/new-password'
-                ? 'h-100'
-                : 'h-200'
-            }`}
 
+        <div
+            className={`relative bg-no-repeat bg-center bg-cover w-full z-0 ${h}`}
             style={{ 
                 backgroundImage: (loc.pathname ==='/about') ? `linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(${main})` : `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${main})`,
                 }}

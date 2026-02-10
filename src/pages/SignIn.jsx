@@ -55,7 +55,7 @@ export default function SignIn() {
                 </div>
                 <div>
                     <label className='font-semibold' htmlFor="password">Password</label> 
-                    <Field className="w-full input bg-white rounded-lg shadow" name="password" type="text" placeholder="Enter you password" />
+                    <Field className="w-full input bg-white rounded-lg shadow" name="password" type="password" placeholder="Enter you password" />
                     <ErrorMessage name="password" component={'p'} className="text-red-500" />
                 </div>
                 <div className='w-full flex justify-between'>
