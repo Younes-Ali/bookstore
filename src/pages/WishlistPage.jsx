@@ -31,6 +31,7 @@ function FreeShipping() {
 
 export default function WishlistPage() {
     const [wishlistItems, setWishlistItems] = useState(BOOKS_INITIAL);
+    const navigate = useNavigate();
 
     const updateQty = (id, delta) =>
         setWishlistItems(prev => prev.map(i => i.id === id ? { ...i, qty: Math.max(1, i.qty + delta) } : i));
@@ -41,20 +42,16 @@ export default function WishlistPage() {
     const subtotal = wishlistItems.reduce((s, i) => s + i.price * i.qty, 0);
     const totalQty  = wishlistItems.reduce((s, i) => s + i.qty, 0);
 
-    const navigate = useNavigate();
-
     return (
         <div className="min-h-screen bg-gray-50">
-        <div className="max-w-5xl mx-auto px-6 pt-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 pt-6 sm:pt-8">
 
-
-            <div className="grid grid-cols-12 gap-4 px-4 pb-4 border-b border-gray-200">
+            <div className="hidden md:grid grid-cols-12 gap-4 px-4 pb-4 border-b border-gray-200">
             <div className="col-span-7 text-sm font-semibold text-gray-500 uppercase tracking-wider">Item</div>
             <div className="col-span-2 text-sm font-semibold text-gray-500 uppercase tracking-wider text-center">Quantity</div>
             <div className="col-span-1 text-sm font-semibold text-gray-500 uppercase tracking-wider text-center">Price</div>
             <div className="col-span-2 text-sm font-semibold text-gray-500 uppercase tracking-wider text-center">Total Price</div>
             </div>
-
 
             <div className="space-y-3 mt-3">
             {wishlistItems.length === 0 ? (
@@ -66,13 +63,11 @@ export default function WishlistPage() {
             ) : (
                 wishlistItems.map(item => (
                 <div key={item.id} className="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow overflow-hidden">
-                    <div className="grid grid-cols-12 gap-4 p-5 items-center">
 
-
+                    <div className="hidden md:grid grid-cols-12 gap-4 p-5 items-center">
                     <div className="col-span-7 flex gap-4">
                         <div className="relative shrink-0">
                         <img src={item.img} alt={item.title} className="w-24 h-32 object-cover rounded-xl shadow-sm" />
-
                         <button onClick={() => removeItem(item.id)} className="absolute -top-2 -right-2 w-6 h-6 bg-white border-2 border-pink-300 rounded-full flex items-center justify-center text-pink-400 hover:bg-pink-500 hover:text-white transition-all shadow-sm">
                             <svg viewBox="0 0 24 24" fill="currentColor" className="w-3 h-3"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
                         </button>
@@ -85,40 +80,69 @@ export default function WishlistPage() {
                         <p className="text-xs text-gray-400 mt-1">ASIN : <span className="font-mono">{item.asin}</span></p>
                         </div>
                     </div>
-
                     <div className="col-span-2 flex justify-center">
                         <QuantityControl qty={item.qty} onInc={() => updateQty(item.id, 1)} onDec={() => updateQty(item.id, -1)} />
                     </div>
-
                     <div className="col-span-1 text-center">
                         <span className="text-xl font-bold text-gray-800">${item.price}</span>
                     </div>
-
                     <div className="col-span-2 text-center">
                         <span className="text-xl font-bold text-gray-800">${item.price * item.qty}</span>
                     </div>
                     </div>
+
+                    <div className="md:hidden p-4">
+                    <div className="flex gap-3">
+                        <div className="relative shrink-0">
+                        <img src={item.img} alt={item.title} className="w-20 h-28 object-cover rounded-xl shadow-sm" />
+                        <button onClick={() => removeItem(item.id)} className="absolute -top-2 -right-2 w-6 h-6 bg-white border-2 border-pink-300 rounded-full flex items-center justify-center text-pink-400 hover:bg-pink-500 hover:text-white transition-all shadow-sm">
+                            <svg viewBox="0 0 24 24" fill="currentColor" className="w-3 h-3"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </button>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                        <h3 className="font-bold text-gray-800 text-sm leading-snug">{item.title}</h3>
+                        <p className="text-xs text-gray-400 mt-0.5">Author: <span className="font-semibold text-gray-600">{item.author}</span></p>
+                        <p className="text-xs text-gray-400 leading-relaxed mt-1 line-clamp-2">{item.desc}</p>
+                        <div className="mt-2"><FreeShipping /></div>
+                        <p className="text-xs text-gray-400 mt-1">ASIN : <span className="font-mono">{item.asin}</span></p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-center justify-between mt-4 pt-3 border-t border-gray-100">
+                        <QuantityControl qty={item.qty} onInc={() => updateQty(item.id, 1)} onDec={() => updateQty(item.id, -1)} />
+                        <div className="flex items-center gap-5">
+                        <div className="text-right">
+                            <p className="text-xs text-gray-400">Price</p>
+                            <p className="text-sm font-bold text-gray-800">${item.price}</p>
+                        </div>
+                        <div className="text-right">
+                            <p className="text-xs text-gray-400">Total</p>
+                            <p className="text-sm font-bold text-pink-500">${item.price * item.qty}</p>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+
                 </div>
                 ))
             )}
             </div>
 
             {wishlistItems.length > 0 && (
-            <div className="flex items-center justify-center gap-6 mt-8 pb-10">
-                <button className="px-6 py-3 border-2 border-pink-400 text-pink-500 font-semibold rounded-xl hover:bg-pink-50 transition-all">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8 pb-10">
+                <button className="w-full sm:w-auto px-6 py-3 border-2 border-pink-400 text-pink-500 font-semibold rounded-xl hover:bg-pink-50 transition-all">
                 Move to cart
                 </button>
 
-                <button className="bg-pink-600 flex items-center overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all group">
-                <div className=" px-5 py-3 border-r border-pink-100">
-                    <p className="text-xs  font-medium">{totalQty} Item{totalQty !== 1 ? "s" : ""}</p>
-                    <p className="text-lg font-bold ">${subtotal}</p>
+                <button className="w-full sm:w-auto bg-pink-600 flex items-center overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all group">
+                <div className="px-5 py-3 border-r border-pink-500">
+                    <p className="text-xs text-pink-200 font-medium">{totalQty} Item{totalQty !== 1 ? "s" : ""}</p>
+                    <p className="text-lg font-bold text-white">${subtotal}</p>
                 </div>
                 <div
-                onClick={()=>{
-                    navigate('/checkout')
-                }} 
-                className=" text-white px-6 py-4 flex items-center gap-2 font-bold group-hover:from-pink-600 group-hover:to-rose-600 transition-all">
+                    onClick={() => navigate("/checkout")}
+                    className="flex-1 sm:flex-none text-white px-6 py-4 flex items-center justify-center gap-2 font-bold hover:bg-pink-700 transition-all"
+                >
                     Check out
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </div>
