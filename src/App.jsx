@@ -14,7 +14,7 @@ import Books from './pages/Books';
 import BookDetails from './pages/BookDetails';
 import CartPage from './pages/CartPage';
 import WishlistPage from './pages/WishlistPage';
-import CheckoutPage from './pages/CheckOutPage';
+import CheckoutPage from './pages/CheckoutPage'
 
 
 
