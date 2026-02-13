@@ -71,7 +71,7 @@ export default function CheckoutPage() {
             <p className="text-gray-400 text-sm mb-6">Your order of <strong className="text-pink-500">${total}</strong> has been placed successfully.</p>
             <button
                 onClick={() => { setConfirmed(false); setCartItems(CART_INITIAL); }}
-                className="w-full py-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold rounded-xl hover:from-pink-600 hover:to-rose-600 transition-all shadow-md"
+                className="w-full py-3 bg-linear-to-r from-pink-500 to-rose-500 text-white font-bold rounded-xl hover:from-pink-600 hover:to-rose-600 transition-all shadow-md"
             >
                 Continue Shopping
             </button>
@@ -139,7 +139,7 @@ export default function CheckoutPage() {
                             : "border-gray-200 text-gray-500 hover:border-gray-300 bg-white"
                         }`}
                     >
-                        <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${payMethod === val ? "border-pink-500" : "border-gray-300"}`}>
+                        <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 ${payMethod === val ? "border-pink-500" : "border-gray-300"}`}>
                         {payMethod === val && <div className="w-2 h-2 rounded-full bg-pink-500" />}
                         </div>
                         {label}
@@ -167,7 +167,7 @@ export default function CheckoutPage() {
                 <div className="space-y-4 max-h-56 overflow-y-auto pr-1">
                     {cartItems.map(item => (
                     <div key={item.id} className="flex gap-3">
-                        <img src={item.img} alt={item.title} className="w-14 h-20 object-cover rounded-xl shadow-sm flex-shrink-0" />
+                        <img src={item.img} alt={item.title} className="w-14 h-20 object-cover rounded-xl shadow-sm shrink-0" />
                         <div className="flex-1 min-w-0">
                         <h4 className="text-sm font-bold text-gray-800 leading-tight">{item.title}</h4>
                         <p className="text-xs text-gray-400 mt-0.5">Author: <span className="font-semibold text-gray-600">{item.author}</span></p>
@@ -186,7 +186,7 @@ export default function CheckoutPage() {
                     <p className="text-sm font-medium text-gray-600 mb-2">Have a discount code?</p>
                     <div className="flex gap-2">
                         <div className="flex-1 flex items-center gap-2 border border-gray-200 rounded-xl px-3 py-2">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 text-gray-400 flex-shrink-0"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 text-gray-400 shrink-0"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
                         <input
                             type="text"
                             value={promoCode}

@@ -77,7 +77,7 @@ export default function CartPage() {
 
                 <div className="hidden md:grid grid-cols-12 gap-4 p-5 items-center">
                     <div className="col-span-6 flex gap-4">
-                    <img src={item.img} alt={item.title} className="w-28 h-36 object-cover rounded-xl shadow-sm flex-shrink-0" />
+                    <img src={item.img} alt={item.title} className="w-28 h-36 object-cover rounded-xl shadow-sm shrink-0" />
                     <div className="flex flex-col justify-center gap-1.5">
                         <h3 className="font-bold text-gray-800 text-base leading-snug">{item.title}</h3>
                         <p className="text-xs text-gray-400">Author: <span className="font-semibold text-gray-600">{item.author}</span></p>
@@ -102,11 +102,11 @@ export default function CartPage() {
 
                 <div className="md:hidden p-4">
                     <div className="flex gap-3">
-                    <img src={item.img} alt={item.title} className="w-20 h-28 object-cover rounded-xl shadow-sm flex-shrink-0" />
+                    <img src={item.img} alt={item.title} className="w-20 h-28 object-cover rounded-xl shadow-sm shrink-0" />
                     <div className="flex-1 min-w-0">
                         <div className="flex items-start justify-between gap-2">
                         <h3 className="font-bold text-gray-800 text-sm leading-snug">{item.title}</h3>
-                        <button onClick={() => removeItem(item.id)} className="text-pink-300 hover:text-pink-500 transition-colors p-1 hover:bg-pink-50 rounded-lg flex-shrink-0">
+                        <button onClick={() => removeItem(item.id)} className="text-pink-300 hover:text-pink-500 transition-colors p-1 hover:bg-pink-50 rounded-lg shrink-0">
                             <TrashIcon />
                         </button>
                         </div>
@@ -153,7 +153,7 @@ export default function CartPage() {
                     <p className="text-sm font-medium text-gray-600 mb-2">Have a discount code?</p>
                     <div className="flex gap-2">
                     <div className="flex-1 flex items-center gap-2 bg-transparent border border-gray-900 rounded-xl px-3 py-2.5">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 text-gray-400 flex-shrink-0">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 text-gray-400 shrink-0">
                         <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/>
                         </svg>
                         <input
@@ -205,7 +205,7 @@ export default function CartPage() {
                 <div className="space-y-3">
                     <button
                     onClick={() => navigate("/checkout")}
-                    className="w-full py-3.5 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold rounded-xl hover:from-pink-600 hover:to-rose-600 transition-all shadow-md hover:shadow-lg active:scale-95"
+                    className="w-full py-3.5 bg-linear-to-r from-pink-500 to-rose-500 text-white font-bold rounded-xl hover:from-pink-600 hover:to-rose-600 transition-all shadow-md hover:shadow-lg active:scale-95"
                     >
                     Check out
                     </button>
