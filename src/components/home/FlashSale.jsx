@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { FaChevronLeft, FaChevronRight, FaStar } from 'react-icons/fa';
 import { IoCartOutline } from 'react-icons/io5';
 import book1 from '../../assets/images/book7.png';
+import { useLocation } from 'react-router-dom';
 
 export default function FlashSale() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -10,6 +11,8 @@ export default function FlashSale() {
     minutes: 0,
     seconds: 0
   });
+  const loc = useLocation();
+
 
   // Countdown Timer
   useEffect(() => {
@@ -165,19 +168,23 @@ export default function FlashSale() {
     <div className="bg-[#f5f5f5] py-10 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
       <div className="max-w-350 mx-auto">
         {/* Header Section */}
-        <div className="flex flex-col lg:flex-row justify-between items-center mb-8 sm:mb-10 md:mb-12 lg:mb-14 gap-6 lg:gap-8">
-          <div className="max-w-xl text-center lg:text-left w-full lg:w-auto">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#222222] mb-3 sm:mb-4">
-              Flash Sale
-            </h2>
-            <p className="text-sm sm:text-base md:text-lg text-[#222222]/60 leading-relaxed px-4 sm:px-0">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et ultricies est. Aliquam in justo varius, sagittis neque ut, malesuada leo.
-            </p>
-          </div>
-          <div className="shrink-0">
-            <CircularProgress timeLeft={timeLeft} />
-          </div>
-        </div>
+        {
+          loc.pathname === '/' && (
+            <div className="flex flex-col lg:flex-row justify-between items-center mb-8 sm:mb-10 md:mb-12 lg:mb-14 gap-6 lg:gap-8">
+              <div className="max-w-xl text-center lg:text-left w-full lg:w-auto">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#222222] mb-3 sm:mb-4">
+                  Flash Sale
+                </h2>
+                <p className="text-sm sm:text-base md:text-lg text-[#222222]/60 leading-relaxed px-4 sm:px-0">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et ultricies est. Aliquam in justo varius, sagittis neque ut, malesuada leo.
+                </p>
+              </div>
+              <div className="shrink-0">
+                <CircularProgress timeLeft={timeLeft} />
+              </div>
+            </div>
+          )
+        }
 
         {/* Slider Section */}
         <div className="relative flex flex-col items-center">

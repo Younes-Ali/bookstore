@@ -4,7 +4,7 @@ const PublisherFilter = ({ filters, setFilters }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="lg:mb-6">
+    <div className="lg:mb-6 bg-white p-3 rounded-xl ">
       <button
         onClick={() => setIsExpanded(!isExpanded)}
         className="flex items-center justify-between w-full mb-3"

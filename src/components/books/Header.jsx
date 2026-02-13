@@ -6,7 +6,7 @@ import CategoryTabs from './CategoryTabs';
 const Header = ({ selectedCategory, setSelectedCategory }) => {
   return (
     <div className="mb-6">
-      <div className="flex flex-col md:flex-row items-center gap-4 mb-6">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-6">
         <SearchBar />
         <SortDropdown />
       </div>

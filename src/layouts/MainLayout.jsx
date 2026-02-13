@@ -6,10 +6,10 @@ import Footer from '../components/Footer'
 export default function MainLayout() {
   return (
     <div
-        className='w-full bg-white'
+        className='w-full bg-[#f2f2f2]'
     >
-        <Header/>
-        <Outlet/>
+        <Header />
+        <Outlet />
         <Footer/>
     </div>
   )

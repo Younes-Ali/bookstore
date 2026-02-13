@@ -11,7 +11,7 @@ export default function Header() {
     let h = '' ;
     if(loc.pathname === '/auth/signin' || loc.pathname === '/auth/signup' || loc.pathname === '/auth/forget-password' || loc.pathname === '/auth/rest-password' || loc.pathname === '/auth/new-password') {
         h='h-100'
-    } else if(loc.pathname === '/books') { 
+    } else if(loc.pathname === '/books' || loc.pathname === '/books/:id') { 
         h='h-30'
     }else{
         h='h-200'

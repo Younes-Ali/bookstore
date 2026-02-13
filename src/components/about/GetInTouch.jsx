@@ -54,7 +54,7 @@ export default function GetInTouch() {
         }}
         >
         <div className=" md:w-full flex flex-col lg:flex-row gap-47.5">
-            <div className="lg:w-1/2 flex flex-col text-white">
+            <div id="getInTouch" className="lg:w-1/2 flex flex-col text-white">
                 <h2 className="text-white p-2 text-xl md:text-4xl font-bold mb-2">
                     Have a Questions?
                 </h2>

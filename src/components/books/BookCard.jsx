@@ -4,27 +4,30 @@ import BookInfo from './BookInfo';
 import DiscountBadge from './DiscountBadge';
 import PriceSection from './PriceSection';
 import ActionButtons from './ActionButtons';
+import { useNavigate } from 'react-router-dom';
 
-const BookCard = ({ book }) => {
+const BookCard = ({ book , img }) => {
+  
+  const navigate = useNavigate();
   return (
-    <div className="flex flex-col md:flex-row gap-6 bg-white p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
-      <BookImage image={book.image} title={book.title} />
+    <div onClick={() => navigate(`/books/${book.bookId}`)} className="flex flex-col md:flex-row gap-6 bg-white p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow cursor-pointer">
+      <BookImage image={img} title={book.bookName} />
       
       <div className="flex-1 flex flex-col">
         <div className="flex flex-col md:flex-row justify-between items-start mb-2 flex-wrap gap-2">
           <BookInfo 
-            title={book.title}
+            title={book.bookName}
             description={book.description}
             author={book.author}
-            year={book.year}
-            rating={book.rating}
-            reviews={book.reviews}
+            year={book.publicationYear}
+            rating={book.rate}
+            reviews={book.countReview}
           />
-          <DiscountBadge discount={book.discount} />
+          <DiscountBadge discount={book.discount+'% Discount code: Ne212'} />
         </div>
         
         <div className="mt-auto flex flex-col gap-3 md:gap-0 md:flex-row items-center justify-between">
-          <PriceSection price={book.price} />
+          <PriceSection price={book.price} finalPrice={book.final_price} />
           <ActionButtons />
         </div>
       </div>

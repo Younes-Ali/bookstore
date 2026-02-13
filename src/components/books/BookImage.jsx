@@ -6,7 +6,7 @@ const BookImage = ({ image, title }) => {
       <img
         src={image}
         alt={title}
-        className="w-34.25 h-63.5 object-cover rounded-lg shadow-md"
+        className="w-52 object-cover rounded-lg shadow-md"
       />
     </div>
   );

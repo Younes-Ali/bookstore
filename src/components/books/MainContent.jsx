@@ -5,7 +5,7 @@ import Pagination from './Pagination';
 
 const MainContent = ({ selectedCategory, setSelectedCategory, filters }) => {
   return (
-    <main className="flex-1 p-6">
+    <main className="flex-1 p-6 bg-[#f2f2f2]">
       <Header 
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}

@@ -11,6 +11,7 @@ import NewPass from './pages/NewPass';
 import Profile from './pages/Profile';
 import About from './pages/About';
 import Books from './pages/Books';
+import BookDetails from './pages/BookDetails';
 
 
 
@@ -34,6 +35,7 @@ export default function App() {
           <Route path='/' element={<MainLayout/>}>
             <Route index element={<Home/>}/>
             <Route path='books' element={<Books/>}/>
+            <Route path='books/:id' element={<BookDetails/>} />
             <Route path='about' element={<About/>}/>
           </Route>
           <Route path='*' element={
