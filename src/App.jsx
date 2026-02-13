@@ -12,6 +12,9 @@ import Profile from './pages/Profile';
 import About from './pages/About';
 import Books from './pages/Books';
 import BookDetails from './pages/BookDetails';
+import CartPage from './pages/CartPage';
+import WishlistPage from './pages/WishlistPage';
+import CheckoutPage from './pages/CheckOutPage';
 
 
 
@@ -33,10 +36,13 @@ export default function App() {
             <Route path='profile' element={<Profile/>}/>
           </Route>
           <Route path='/' element={<MainLayout/>}>
-            <Route index element={<Home/>}/>
-            <Route path='books' element={<Books/>}/>
+            <Route index element={<Home/>} />
+            <Route path='books' element={<Books/>} />
             <Route path='books/:id' element={<BookDetails/>} />
-            <Route path='about' element={<About/>}/>
+            <Route path='about' element={<About/>} />
+            <Route path='cart' element={<CartPage/>} />
+            <Route path='wishlist' element={<WishlistPage/>} />
+            <Route path='checkout' element={<CheckoutPage/>} />
           </Route>
           <Route path='*' element={
             <div className='w-full h-screen flex items-center justify-center'>

@@ -13,7 +13,6 @@ function Books() {
     if (!token) navigate("/auth/signin");
   }, []);
 
-  // ✅ جيب الكاتيجوريز مرة واحدة هنا
   useEffect(() => {
     fetchCategories();
   }, []);

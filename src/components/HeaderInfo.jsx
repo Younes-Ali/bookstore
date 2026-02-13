@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { MdLogout, MdOutlineShoppingCart } from "react-icons/md";
 import { CiHeart } from "react-icons/ci";
 import avatar from '../assets/people/p1.svg'
@@ -19,6 +19,8 @@ export default function HeaderInfo() {
 
     const [personData, setPersonData] = useState({});
     const [isExpanded, setIsExpanded] = useState(false);
+
+    const navigate = useNavigate();
     
     const handelLogout = ()=> {
         Swal.fire({
@@ -86,8 +88,12 @@ export default function HeaderInfo() {
                     </div>
                 ) : (
                     <div className='flex gap-7 items-center'>
-                        <CiHeart size={32} />
-                        <MdOutlineShoppingCart size={32} />
+                        <CiHeart size={32} className='hover:text-yellow-600' onClick={()=>{
+                            navigate('/wishlist')
+                        }} />
+                        <MdOutlineShoppingCart size={32} className='hover:text-yellow-600' onClick={()=>{
+                            navigate('/cart')
+                        }} />
                         <div className='flex items-center gap-3 relative'>
                             <Link to={'/auth/profile'} className='relative'>
                                 <img src={avatar} alt="person" className='w-12' />

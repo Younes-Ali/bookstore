@@ -65,7 +65,7 @@ const BookDetails = () => {
     <div className="max-w-5xl  mx-auto px-4 py-8">
 
     
-      <div className="h-[50vh] flex flex-col md:flex-row gap-8 mb-8">
+      <div className=" flex flex-col md:flex-row gap-8 mb-8">
 
       
         <div className="flex flex-col gap-3">

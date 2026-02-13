@@ -20,14 +20,14 @@ const BookCard = ({ book , img }) => {
             description={book.description}
             author={book.author}
             year={book.publicationYear}
-            rating={book.rate}
+            rating={book.rate || 4}
             reviews={book.countReview}
           />
           <DiscountBadge discount={book.discount+'% Discount code: Ne212'} />
         </div>
         
         <div className="mt-auto flex flex-col gap-3 md:gap-0 md:flex-row items-center justify-between">
-          <PriceSection price={book.price} finalPrice={book.final_price} />
+          <PriceSection price={book.final_price} finalPrice={book.price} />
           <ActionButtons />
         </div>
       </div>
